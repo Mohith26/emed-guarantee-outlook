@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guarantee outlook · eMed for Employers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,400,0..1,0&display=block" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="#" aria-label="eMed"><img src="assets/emed-logo.svg" alt="eMed" width="71" height="22"><span class="brand-sub">for Employers</span></a>
+    <nav class="tabs" aria-label="Employer portal">
+      <a href="#">Overview</a>
+      <a href="#">Enrollment</a>
+      <a href="#">Outcomes</a>
+      <a href="#" class="active">Guarantee <span class="new">New</span></a>
+      <a href="#">Billing</a>
+      <a href="#">Reports</a>
+    </nav>
+    <div class="top-actions">
+      <button class="icon-btn" aria-label="Help"><span class="ms fill">help</span></button>
+      <button class="icon-btn bell" aria-label="Notifications"><span class="ms">notifications</span><i class="dot">1</i></button>
+      <div class="org"><span class="org-avatar">CF</span><span class="org-name" id="orgName">Calder Freight</span><span class="ms small">expand_more</span></div>
+    </div>
+  </div>
+</header>
+
+<main class="page">
+  <div class="crumbs"><span>Outcomes</span><span class="ms small">chevron_right</span><span class="cur">Guarantee outlook</span></div>
+  <div class="page-head">
+    <div>
+      <h1>Guarantee outlook</h1>
+      <p class="sub" id="cohortLine">Loading cohort…</p>
+    </div>
+    <div class="head-right">
+      <span class="chip"><span class="ms small">event</span><span id="cutoffChip">Data through …</span></span>
+      <button class="btn-primary" id="dlBtn"><span class="ms small">download</span>Download report</button>
+    </div>
+  </div>
+
+  <div class="info">
+    <span class="ms fill info-ic">info</span>
+    <div>
+      <div class="info-title">A forecast, not a result</div>
+      <div class="info-text" id="infoText">Each member is measured at their own 12-month mark. Most of your members have not reached it yet, so this page simulates the rest of the program year for every active member and reports how often your guarantees are met.</div>
+    </div>
+  </div>
+
+  <section class="grid3">
+    <article class="card gauge-card" id="cardPersist"></article>
+    <article class="card gauge-card" id="cardLoss"></article>
+    <article class="card credit-card" id="cardCredit"></article>
+  </section>
+
+  <section class="grid-main">
+    <article class="card chart-card">
+      <div class="card-head">
+        <div>
+          <h2>Path to the 12-month mark</h2>
+          <p class="muted" id="chartSub">By program week, all enrolled members</p>
+        </div>
+        <div class="seg" role="tablist">
+          <button class="on" data-metric="persist">On program</button>
+          <button data-metric="loss">Average weight loss</button>
+        </div>
+      </div>
+      <div id="chart" class="chart"></div>
+      <div class="legend" id="legend"></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><div><h2>What predicts leaving the program</h2><p class="muted" id="hazSub">Fitted on your cohort's check-in history</p></div></div>
+      <div id="hazard"></div>
+    </article>
+  </section>
+
+  <section class="grid-main">
+    <article class="card">
+      <div class="card-head"><div><h2>What moves the odds</h2><p class="muted">Re-engagement outreach for members who missed 2+ of their last 4 weekly check-ins</p></div></div>
+      <div class="lever">
+        <label for="reengage">Outreach cuts their weekly drop-off odds by <b id="reVal">0%</b></label>
+        <input type="range" id="reengage" min="0" max="60" step="10" value="0">
+        <div class="ticks"><span>0%</span><span>20%</span><span>40%</span><span>60%</span></div>
+      </div>
+      <div class="lever-out" id="leverOut"></div>
+      <h3 class="tbl-title">By segment</h3>
+      <div id="segments"></div>
+    </article>
+    <article class="card terms-card">
+      <div class="card-head"><div><h2>Contract terms</h2><p class="muted">Example terms. Edit to re-score instantly.</p></div></div>
+      <div class="terms" id="terms"></div>
+    </article>
+  </section>
+
+  <section class="card calib">
+    <div class="card-head"><div><h2>How reliable is this forecast?</h2><p class="muted" id="calibSub">Back-tested on simulated employer cohorts with known 12-month outcomes</p></div></div>
+    <div class="calib-grid">
+      <div id="reliab"></div>
+      <div class="calib-stats" id="calibStats"></div>
+    </div>
+  </section>
+
+  <footer class="foot">Unofficial concept demo by Mohith Gajjela. Not affiliated with eMed. Synthetic data.</footer>
+</main>
+<div id="tip" class="tip" hidden></div>
+<script type="module" src="app.js"></script>
+</body>
+</html>
